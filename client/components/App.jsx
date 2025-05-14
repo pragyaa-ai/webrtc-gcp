@@ -12,10 +12,10 @@ export default function App() {
   const audioElement = useRef(null);
 
   // Azure OpenAI configuration
-  const WEBRTC_URL = process.env.WEBRTC_URL;
-  const SESSIONS_URL = process.env.SESSIONS_URL;
-  const API_KEY = process.env.AZURE_OPENAI_API_KEY;
-  const DEPLOYMENT = "process.env.DEPLOYMENT";
+  const WEBRTC_URL = import.meta.env.VITE_WEBRTC_URL;
+  const SESSIONS_URL = import.meta.env.VITE_SESSIONS_URL;
+  const API_KEY = import.meta.env.VITE_AZURE_OPENAI_API_KEY;
+  const DEPLOYMENT = import.meta.env.VITE_DEPLOYMENT;
   const VOICE = "verse";
 
   async function startSession() {
@@ -98,7 +98,7 @@ export default function App() {
         const initEvent = {
           type: "session.update",
           session: {
-            instructions: "You are a helpful AI assistant responding in natural, engaging language."
+            instructions: "You are a helpful AI assistant responding in natural, engaging language. Speak in English at first."
           }
         };
         dc.send(JSON.stringify(initEvent));
