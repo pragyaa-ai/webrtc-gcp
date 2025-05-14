@@ -4,12 +4,12 @@ import { createServer as createViteServer } from "vite";
 import "dotenv/config";
 
 const app = express();
-const port = process.env.PORT || 3001;
-const apiKey = process.env.AZURE_OPENAI_API_KEY; // Make sure to use Azure OpenAI key
+const port = 3001;
+const apiKey = process.env.VITE_AZURE_OPENAI_API_KEY; // Make sure to use Azure OpenAI key
 
 // Azure OpenAI configuration
-const SESSIONS_URL = process.env.SESSIONS_URL;
-const DEPLOYMENT = process.env.DEPLOYMENT;
+const SESSIONS_URL = process.env.VITE_SESSIONS_URL;
+const DEPLOYMENT = process.env.VITE_DEPLOYMENT;
 
 // Configure Vite middleware for React client
 const vite = await createViteServer({
